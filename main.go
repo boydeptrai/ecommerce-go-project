@@ -1,7 +1,9 @@
 package main
 
-
 import (
+	"log"
+	"os"
+
 	"github.com/boydeptrai/ecommerce-go-project/controllers"
 	"github.com/boydeptrai/ecommerce-go-project/database"
 	"github.com/boydeptrai/ecommerce-go-project/middleware"
@@ -20,7 +22,7 @@ func main(){
 	router := gin.New()
 	router.Use(gin.Logger())
 
-	routes.UserRoutes(router)
+	routes.UserRouter(router)
 	router.Use(middleware.Authentication())
 
 	router.GET("/addtocart", app.AddToCart())
